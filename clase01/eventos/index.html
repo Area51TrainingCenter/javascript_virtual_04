@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        .activado{
+            background-color: red;
+            color: white;
+            transition:all 0.4s linear;
+        }
+        #caja1{
+            width: 200px;
+            height: 100px;
+            background-color: red;
+        }
+
+        #caja2{
+            width: 200px;
+            height: 100px;
+            background-color: blue;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1 id="titulo">Titulo agregado</h1>
+    <span onclick="tarea1()" >Cambiar Titulo</span>
+    <span onclick="tarea2()">Regrsar Titulo</span>
+    <div id="caja1" class="hide">
+
+    </div>
+    <div id="caja2" class="hide">
+
+    </div>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
