@@ -60,3 +60,69 @@ btn_tarea2.addEventListener("click", function() {
                         </table>
                         `
  } )
+
+
+
+/** FORMA 1 **/
+/*
+ let item1=document.getElementById("item1");
+ let item2=document.getElementById("item2");
+ let item3=document.getElementById("item3");
+
+ item1.addEventListener("click",function(){
+    quitarActivado()
+    item1.classList.add("activado")
+ })
+ item2.addEventListener("click",function(){
+    quitarActivado()
+    item2.classList.add("activado")
+})
+
+item3.addEventListener("click",function(){
+   quitarActivado()
+    item3.classList.add("activado")
+})
+
+function quitarActivado(){
+    item1.classList.remove("activado");
+    item2.classList.remove("activado");
+    item3.classList.remove("activado");
+}*/
+
+/** FORMA 2 **/
+let item1=document.getElementById("item1");
+let item2=document.getElementById("item2");
+let item3=document.getElementById("item3");
+
+item1.addEventListener("click",activarMenu)
+item2.addEventListener("click",activarMenu)
+item3.addEventListener("click",activarMenu)
+
+
+function activarMenu(){
+    quitarActivado()
+    this.classList.add("activado")
+}
+
+
+function quitarActivado(){
+   item1.classList.remove("activado");
+   item2.classList.remove("activado");
+   item3.classList.remove("activado");
+}
+
+
+let foto1=document.getElementById("foto1")
+let foto2=document.getElementById("foto2")
+let foto_principal=document.getElementById("foto-principal");
+
+foto1.addEventListener("click",actualizarFoto)
+foto2.addEventListener("click",actualizarFoto)
+
+function actualizarFoto(){
+    console.log(this)
+    //obtener valores de elementos
+   // let path=this.getAttribute("src");
+   let path=this.getAttribute("data-ruta");
+    foto_principal.setAttribute("src",path)
+}

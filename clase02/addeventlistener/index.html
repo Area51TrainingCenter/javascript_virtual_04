@@ -7,10 +7,51 @@
     <title>Document</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <style>
+        .nav-site {
+            background-color: #e2e2e2;
+        }
+        .nav-site ul{
+            display: flex;
+            width: 100%;
+            list-style: none;
+        }
+        .nav-site ul li{
+            padding: 10px 20px;
+        }
+        .activado{
+            background-color: black;
+            color:white;
+        }
+        .principal{
+            width: 100%;
+        }
+        .listado{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .listado .thumb{
+            width: 300px;
+        }
+        .listado .thumb img{
+            width: 100%;
 
+        }
+    </style>
 </head>
 <body>
     <div class="container">
+
+        <header>
+            
+            <nav class="nav-site">
+                <ul>    
+                    <li id="item1" class="nav-item ">Inicio</li>
+                    <li id="item2" class="nav-item">Nosotros</li>
+                    <li id="item3"  class="nav-item">Servicios</li>
+                </ul>
+            </nav>
+        </header>
         <div class="row">
             <h2>Manejando eventos</h2>
         </div>
@@ -33,6 +74,24 @@
                 </div>
 
             </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <div>
+                    <img id="foto-principal" class="principal" src="img/foto1.jpg">
+                </div>
+                <br>
+                <div class="listado">
+                    <div class="thumb">
+                        <img id="foto1" src="https://via.placeholder.com/300x100" data-ruta="img/foto1.jpg" data-titulo="" data-precio="" alt="">
+                    </div>
+                    <div class="thumb">
+                        <img id="foto2" src="https://via.placeholder.com/300x100" data-ruta="img/foto2.jpg" alt="">
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </div>
 
