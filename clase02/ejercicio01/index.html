@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn{
+            display: inline-block;
+            padding:10px 15px;
+            background-color: aqua;
+            font-family: arial;
+            margin-left: 20px;
+        }
+        li{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <ul>
+
+            <li><span>Hamburgesa</span><span class="btn" onclick="agregarIngrediente('hamburgesa')">Agregar</span></li>
+            <li><span>Pan</span><span class="btn"  onclick="agregarIngrediente('pan')">Agregar</span></li>
+            <li><span>Queso</span><span class="btn"  onclick="agregarIngrediente('queso')">Agregar</span></li>
+        </ul>
+        <div>
+            <p>Total de ingredientes: <span id="cantidad">0</span></p>
+        </div>
+        <div>
+            <span id="error"></span>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
