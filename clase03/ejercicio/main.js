@@ -1,0 +1,22 @@
+datos=[
+    {
+      titulo:"categoria1",
+      foto:"https://via.placeholder.com/100x100"
+    },
+    {
+      titulo:"categoria2",
+      foto:"https://via.placeholder.com/100x100"
+    },
+    {
+      titulo:"categoria3",
+      foto:"https://via.placeholder.com/100x100"
+    },
+    {
+      titulo:"categoria4",
+      foto:"https://via.placeholder.com/100x100"
+    },
+    {
+      titulo:"categoria5",
+      foto:"https://via.placeholder.com/100x100"
+    },
+    ]
