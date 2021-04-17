@@ -12,6 +12,7 @@ $(".opcion").click(function(){
     $(this).addClass("activado")
     let titulo=$(this).attr("data-titulo")
     $("#titulo").text(titulo)
+    
    //$("#titulo").addClass("color-green")
   //  $("#titulo").addClass("hide")
   //  $("#titulo").toggleClass("hide");
