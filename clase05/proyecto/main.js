@@ -1,7 +1,7 @@
 let categorias="http://phpstack-150511-1748519.cloudwaysapps.com/apiclase/categorias"
 
 let platos_por_categoria="http://phpstack-150511-1748519.cloudwaysapps.com/apiclase/listado-platos/IDCATEGORIA"
-
+let pedido=[];
 cargarCategorias()
 
 function cargarCategorias(){
@@ -55,11 +55,11 @@ for(let item of data){
                         </div>
                         <div class="control-agregar">
                             <div class="control">
-                                <span>-</span>
-                                <input type="text" value="0">
-                                <span>+</span>
+                                <span onclick="quitar(this)">-</span>
+                                <input class="qty" type="text" value="0">
+                                <span onclick="agregar(this)">+</span>
                             </div>
-                            <button class="btn">Añadir</button>
+                            <button class="btn" onclick="agregar_a_pedido(this,${item.id})">Añadir</button>
                             
                         </div>
                     </div>`)
@@ -69,4 +69,53 @@ for(let item of data){
 function ver_categoria(id){
 
     cargarPlatosPorCategoria(id)
+}
+
+function agregar(ele){
+ 
+    let valor_actual=$(ele).parent().find(".qty").val();
+   
+    let nuevo_valor=parseInt(valor_actual)+1
+
+    if(nuevo_valor>0){
+        $(ele).parent().parent().find(".btn").addClass("activo")
+    }
+
+
+  
+    $(ele).parent().find(".qty").val(nuevo_valor);
+ 
+
+}
+function quitar(ele){
+    let valor_actual=$(ele).parent().find(".qty").val();
+  
+        let nuevo_valor=parseInt(valor_actual)-1
+
+        if(nuevo_valor==0){
+        
+            $(ele).parent().parent().find(".btn").removeClass("activo")
+        
+        }
+        if(nuevo_valor<0){
+            
+        }else{
+            $(ele).parent().find(".qty").val(nuevo_valor);  
+        }
+
+        
+ 
+   
+ 
+}
+function agregar_a_pedido(ele,id){
+   let cantidad_seleccionada=$(ele).parent().find(".qty").val();
+   
+   let item_pedido={
+       id_plato:id,
+       cantidad:cantidad_seleccionada,
+   }
+
+   pedido.push(item_pedido);
+   console.log(pedido);
 }

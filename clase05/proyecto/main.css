@@ -91,7 +91,7 @@ align-items: center;
     cursor: pointer;
 }
 .control-agregar .btn{
-    background-color: red;
+    background-color: gainsboro;
     color: white;
     width: 80px;
 }
@@ -99,4 +99,7 @@ align-items: center;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+.activo{
+    background-color: red!important;
 }
