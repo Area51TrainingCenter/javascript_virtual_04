@@ -10,3 +10,4 @@ producto.getPrecioConIGV();
 
 
 let productoNuevo=new Producto();
+productoNuevo.getDescuento(20);
