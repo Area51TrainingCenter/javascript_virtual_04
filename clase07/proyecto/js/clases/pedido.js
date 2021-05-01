@@ -1,16 +1,17 @@
 class Pedido{
-    constructor(nombre,direccion,telefono,tipo_pago,total_pagar,detalle_pedido){
+    constructor(nombre_cliente,direccion,telefono,referencia,total_pagar,platos){
        // this.hora="";
        // this.fecha="";
-       let date=new Date();
-       this.hora=date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
-       this.fecha=date.getDate()+"/" + date.getMonth() + "/" + date.getFullYear();
-        this.nombre=nombre;
+       // agregar
+        let date=new Date();
+        this.hora=date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+        this.fecha=date.getDate()+"/" + date.getMonth() + "/" + date.getFullYear();
+        this.nombre_cliente=nombre_cliente;
         this.direccion=direccion;
         this.telefono=telefono;
-        this.tipo_pago=tipo_pago;
+        this.referencia=referencia;
         this.total_pagar=total_pagar;
-        this.detalle_pedido=detalle_pedido;
+        this.platos=platos;
     }
     setHoraFecha(){
         let date=new Date();

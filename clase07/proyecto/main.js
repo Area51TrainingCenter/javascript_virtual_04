@@ -2,6 +2,8 @@ let categorias="http://phpstack-150511-1748519.cloudwaysapps.com/apiclase/catego
 
 let platos_por_categoria="http://phpstack-150511-1748519.cloudwaysapps.com/apiclase/listado-platos/IDCATEGORIA"
 
+let registrar_orden="http://phpstack-150511-1748519.cloudwaysapps.com/apiclase//orden/registar"
+
 let detalle_pedido=[];
 cargarCategorias()
 
@@ -133,7 +135,7 @@ function agregar_a_pedido(ele,id,precio,nombre)
    let item_pedido=new ItemPedido();
    item_pedido.id_plato=id;
    item_pedido.nombre_plato=nombre;
-   item_pedido.precio_plato=precio;
+   item_pedido.precio=precio;
    item_pedido.cantidad=parseInt(cantidad_seleccionada);
    item_pedido.total=item_pedido.calcularTotal();
 
@@ -167,7 +169,7 @@ function detallePedidoHTML(listado){
                                         <td>${item.id_plato}</td>
                                         <td>${item.nombre_plato}</td>
                                         <td>${item.cantidad}</td>
-                                        <td>${item.precio_plato}</td>
+                                        <td>${item.precio}</td>
                                         <td>${item.total}</td>
                                         <td><button type='button' onclick="quitar_de_pedido(this,${item.id_plato})" class="btn btn-danger">Quitar</button></td>
 
@@ -214,8 +216,75 @@ function validarExistenciaEnPedido(item_servicio){
 }
 
 function generarPedido(){
-    console.log("Generar pedido")
+   /* console.log("Generar pedido")
     let pedido=new Pedido();
    // pedido.setHoraFecha();
     console.log(pedido);
+    
+*/
+
+  
+    if(detalle_pedido.length>0){
+
+        /*let use={
+            type:"uno"
+        }
+        
+        'use={"type":"uno"}'*/
+
+        let pedido=new Pedido();
+        pedido.nombre_cliente=$("#inp-nombre-completo").val();
+        pedido.direccion=$("#inp-direccion").val();
+        pedido.referencia=$("#inp-referencia").val()
+        pedido.telefono=$("#inp-telefono").val()
+        pedido.platos=detalle_pedido;
+        pedido.total_pagar=10;
+        console.log(pedido);
+        let url_registrar_pedido="http://phpstack-150511-1748519.cloudwaysapps.com/apiclase/orden/registar"
+        let config={
+            method:"POST",
+            headers:{
+                "Content-type":"application/json"
+            },
+            body:JSON.stringify(pedido)
+        }
+        fetch(url_registrar_pedido,config)
+        .then((data)=>{return data.json()})
+        .then((data)=>{
+            console.log(data);
+            if(data.estado==1){
+                alert("Tu pedido fue recibido con exito , en unos minutos nos pondremos en contacto contigo via whatsapp");            
+            }
+            else{
+                alert("Tuvimos problemas para registrar tu pedido por favor intentalo neuvamente en unos minutos")
+            }
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
+        
+    }
+    else{
+        alert("No hay productos para generar un pedido , agrega productos a tu pedido")
+    }
+}
+
+function registarOrden(){
+  /* let objeto_orden={
+        nombre_cliente:"",
+        fecha:"",
+        hora:"",
+        telefono:"",
+        direccion:"",
+        referencia:"",
+        platos:[
+        {  id_plato:"",
+            precio:"",
+            cantidad:"",
+            nombre_plato:"",
+            total:""
+        }
+        ],total_pagar:""
+    }**/
+
 }

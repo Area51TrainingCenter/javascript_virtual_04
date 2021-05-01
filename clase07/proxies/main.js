@@ -62,5 +62,5 @@ console.log(personaProxy.codigo);
 //SET
 personaProxy.apellido="TR"
 
-personaProxy.estado="asd";
+personaProxy.estado="activado";
 console.log(personaProxy.estado)
