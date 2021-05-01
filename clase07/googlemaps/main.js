@@ -16,6 +16,7 @@ function crearMapa(){
     let config_marker={
         position:{lat:-12.0790769,lng:-77.0299626},
         map:mapa,
+        draggable:true,
         title:"Punto1"
         //icon:"https://icon-library.com/images/20x20-icon/20x20-icon-7.jpg"
         
@@ -31,8 +32,33 @@ function crearMapa(){
         animation:google.maps.Animation.BOUNCE,
         icon:""       
     })*/
+    /*** Manejando evento del marker ***/
 
+    google.maps.event.addListener(marker,"dragend",function(){
+      // console.log(marker.getPosition().lat())
+      // console.log(marker.getPosition().lng())
+      let data_ubacion=marker.getPosition();
+
+      var geocoder=new google.maps.Geocoder();
+      geocoder.geocode({
+          latLng:data_ubacion
+      },function(response){
+          if(response && response.length>0){
+              document.getElementById("direccion").value=response[0].formatted_address
+         }
+          
+      })
+
+    })
     console.log(mapa);
 
 }
 
+function obtenerDireccion(){
+    var geocoder=new google.maps.Geocoder();
+    //geocoder.geocode(ubicacion,function a ejecutar)
+   /*let ubi{
+        latLng:
+    }*/
+    geocoder.gecode()
+}
