@@ -1,0 +1,111 @@
+.item-categoria 
+{
+    padding:15px 0px;
+    text-align: center;
+    cursor: pointer;
+}
+.item-categoria img:hover{
+    transform: scale(1.05);
+}
+.item-categoria img{
+    transition: all 0.1s linear;
+    width:100px;
+    border-radius: 50%;
+}
+
+.titulo {
+    margin-top: 15px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.listado-categoria{
+    display: flex;
+    justify-content:space-evenly;
+}
+.item-plato {
+    width: 220px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+.item-plato img{
+    border-radius: 50%;
+    width: 140px;
+}
+.marco-foto{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.info-precio {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.info-precio .nombre {
+    font-weight: bold;
+    font-size: 14px;
+
+    flex-grow: 1;
+    
+}
+.info-precio .precio{
+    font-weight: bold;
+    width:60px;
+    text-align: right;
+    font-size: 14px;
+
+}
+.item-plato .detalle{
+    font-size: 14px;
+    line-height: 1.2;
+    padding-bottom: 10px;
+}
+
+.control-agregar{
+    display: flex;
+}
+.control-agregar .control{
+    display: flex;
+    align-items: center;
+
+    flex-grow: 1;
+    padding-right: 10px;
+}
+.control-agregar .control input{
+    width: 50px;
+    border: 0px;
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    flex-grow: 1;
+  
+  
+}
+.control-agregar .control span{
+    width: 20px;
+
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+.control-agregar .btn{
+    background-color: gainsboro;
+    color: white;
+    width: 80px;
+}
+.listado-platos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.activo{
+    background-color: red!important;
+}
+
+.mapa{
+    width: 100%;
+    height: 400px;
+    background-color: black;;
+}
