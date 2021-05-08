@@ -238,7 +238,11 @@ function generarPedido(){
         pedido.referencia=$("#inp-referencia").val()
         pedido.telefono=$("#inp-telefono").val()
         pedido.platos=detalle_pedido;
-        pedido.total_pagar=10;
+        total_pagar_platos=0;
+        for(let item of detalle_pedido){
+            total_pagar_platos=total_pagar_platos+item.total;
+        }
+        pedido.total_pagar=total_pagar_platos;
         console.log(pedido);
         let url_registrar_pedido="http://phpstack-150511-1748519.cloudwaysapps.com/apiclase/orden/registar"
         let config={
@@ -248,7 +252,8 @@ function generarPedido(){
             },
             body:JSON.stringify(pedido)
         }
-        fetch(url_registrar_pedido,config)
+
+      fetch(url_registrar_pedido,config)
         .then((data)=>{return data.json()})
         .then((data)=>{
             console.log(data);
