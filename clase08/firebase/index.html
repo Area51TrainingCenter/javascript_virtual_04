@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyDc6MGVmM5HdWs1Cz43_PKAph9ZA46UF9A",
+        authDomain: "chatclase-65cc5.firebaseapp.com",
+        databaseURL: "https://chatclase-65cc5-default-rtdb.firebaseio.com",
+        projectId: "chatclase-65cc5",
+        storageBucket: "chatclase-65cc5.appspot.com",
+        messagingSenderId: "992290677040",
+        appId: "1:992290677040:web:09fac4f04a8489372328f5"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+</head>
+<body>
+    <h1>Usando firebase</h1>
+    <form action="">
+        <div>
+            <label for="">Usuario</label>
+            <input type="text" id="inp-usuario">
+        </div>
+        <div>
+            <label for="">Mensaje</label>
+            <input type="text" id="inp-mensaje">
+        </div>
+        <div>
+            <button type="button" onclick="mandarMensaje()">Enviar</button>
+            
+        </div>
+        <div id="mensajes-chat">
+            <ul id="contenido-mensajes">
+                <li>Usuario_:  <span id="nombre-usuario"></span>  dice:<span id="cupero-mensaje"></span></li>
+            </ul>
+        </div>
+    </form>
+    <script src="proxys.js"></script>
+    <script src="mensaje.js"></script>
+    <script>
+         let database=firebase.database();
+         obtener();
+
+         function mandarMensaje(){
+            let usuario=document.getElementById("inp-usuario").value;
+            let mensaje=document.getElementById("inp-mensaje").value;
+            let obj_mensaje=new Mensaje();
+            console.log(mensaje)
+            try{
+                let obj_mensaje_proxy=new Proxy(obj_mensaje,manejador)
+                obj_mensaje_proxy.usuario=usuario;
+                obj_mensaje_proxy.cuerpo=mensaje;
+            
+                escribir(obj_mensaje)
+            }
+            catch(e){
+                alert("sucedio un inconveniente , vuelve a intentarlo en unos minutos")
+            }
+      
+         
+
+         }
+        function obtener(){
+
+
+        
+       
+        let datos=database.ref("chats")
+        
+        datos.on("value",(response)=>{
+           let respuesta=response.val();
+          // console.log(respuesta)
+          let temp="";
+           for(let prop in respuesta){
+              // console.log(prop);
+               console.log(respuesta[prop])
+               temp=temp+`  <li>Usuario_:  <span id="nombre-usuario">${respuesta[prop].usuario}</span>  <br> dice: <span id="cupero-mensaje">${respuesta[prop].cuerpo}</span></li>`
+
+           }
+           document.getElementById("contenido-mensajes").innerHTML=temp;
+        })
+
+
+
+        }
+        function escribir(mensaje){
+
+            database.ref("chats").push(mensaje)
+        }
+
+    </script>
+</body>
+</html>
